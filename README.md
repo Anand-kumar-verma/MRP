@@ -1,3 +1,8 @@
+![Capture6](https://github.com/Anand-kumar-verma/MRP/assets/93877167/b480990b-1762-416a-a1fe-68bc0efef44a)
+![Capture5](https://github.com/Anand-kumar-verma/MRP/assets/93877167/b57d4c09-226f-4442-9b7b-b2c34dc09798)
+![Capture3](https://github.com/Anand-kumar-verma/MRP/assets/93877167/7a25a4db-4d3b-4a2f-bc50-917938b73665)
+![Capture2](https://github.com/Anand-kumar-verma/MRP/assets/93877167/2e40416b-100e-4844-a586-9f850f977301)
+![Capture1](https://github.com/Anand-kumar-verma/MRP/assets/93877167/c34ee87d-673e-452e-b56d-edfdc466413a)
 # React & Tailwind CSS Starter Pack
 
 This is a starter pack for creating React projects with Tailwind CSS configured. It uses React version **18.2** and Tailwind CSS version **3.2**.
