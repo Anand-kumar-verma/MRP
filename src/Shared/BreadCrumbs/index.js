@@ -34,14 +34,14 @@ const BreadCrumbs = ({ navItem, navLink, id }) => {
   }, [navItem]);
 
   return (
-    <div className="flex !p-0 items-center gap-1 !shadow-none overflow-x-auto breadcrambs bg-white border border-white border-opacity-30 rounded-lg">
+    <div className="flex !p-0 items-center gap-1 !shadow-none overflow-x-auto breadcrambs bg-white !bg-opacity-20 border border-white border-opacity-30 rounded-lg">
       <div className="flex items-center gap-1 w-[80vw] overflow-x-auto breadcrambs border border-white border-opacity-30 rounded-lg p-0.5">
         {breadCrumbs.map((item, index) => {
           return (
             <Chip
               label={item.navItem}
               className={classNames(
-                "!bg-purple-400  backdrop-blur-mk !rounded-md h-full flex items-center px-2 py-1 !font-bold ",
+                "!bg-white !bg-opacity-50  backdrop-blur-mk !rounded-md h-full flex items-center px-2 py-1 !font-bold ",
                 item.id === id ? "!bg-opacity-100" : "!bg-opacity-50"
               )}
               // color={item.id === id ? "primary" : "secondary"}

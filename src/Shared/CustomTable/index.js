@@ -1,17 +1,17 @@
-import React from "react";
-import { styled } from "@mui/material/styles";
 import {
+  Skeleton,
   Table,
   TableBody,
   TableContainer,
   TableHead,
-  TableRow,
-  Paper,
-  Skeleton,
+  TablePagination,
+  TableRow
 } from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import { styled } from "@mui/material/styles";
+import React from "react";
 
-const CustomTable = ({ tablehead, tablerow, className, isLoding }) => {
+const CustomTable = ({ tablehead , tablerow, className, isLoading }) => {
   // console.log(tablerow)
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -34,24 +34,24 @@ const CustomTable = ({ tablehead, tablerow, className, isLoding }) => {
       border: 0,
     },
   }));
-  
+
   return (
     <>
-      <Paper sx={{ width: "100%", overflow: "scroll" }}>
+     
         <TableContainer fontSize="small" sx={{}}>
           <Table size="small" stickyHeader aria-label="sticky table">
-            <TableHead className="!bg-purple-300">
+            <TableHead className="!bg-white !bg-opacity-50">
               <TableRow>
                 {tablehead.map((column) => (
-                  <TableCell className="!text-black !font-bold !bg-purple-300">
+                  <TableCell className="!text-black !font-bold !bg-white !bg-opacity-50 !text-center">
                     {column}
                   </TableCell>
                 ))}
               </TableRow>
             </TableHead>
             <TableBody>
-              {!tablerow ? (
-                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
+              {isLoading ? (
+                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15].map((i) => {
                   return (
                     <StyledTableRow>
                       {tablehead.map(() => (
@@ -82,7 +82,7 @@ const CustomTable = ({ tablehead, tablerow, className, isLoding }) => {
                         <StyledTableCell
                           component="th"
                           scope="row"
-                          className="capitalize"
+                          className="capitalize !text-center !py-[10px]"
                         >
                           {i}
                         </StyledTableCell>
@@ -94,7 +94,7 @@ const CustomTable = ({ tablehead, tablerow, className, isLoding }) => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Paper>
+    
     </>
   );
 };

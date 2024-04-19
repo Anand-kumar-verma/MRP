@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer } from "react-toastify";
 import { ThemeProvider, createTheme } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
+import { SocketProvider } from "./Shared/ScoketProvider";
 
 const queryClient = new QueryClient();
 const lightTheme = createTheme({
@@ -22,24 +23,24 @@ const lightTheme = createTheme({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-
-  <QueryClientProvider client={queryClient}>
-    <ToastContainer
-      position="top-right"
-      autoClose={2000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      limit={2}
-      rtl={false}
-      toastClassName="!rounded !capitalize top-3 lg:!mx-0"
-      pauseOnHover={false}
-    />
-    <ThemeProvider theme={lightTheme}>
-      <App />
-    </ThemeProvider>
-  </QueryClientProvider>
-
+  <SocketProvider>
+    <QueryClientProvider client={queryClient}>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        limit={2}
+        rtl={false}
+        toastClassName="!rounded !capitalize top-3 lg:!mx-0"
+        pauseOnHover={false}
+      />
+      <ThemeProvider theme={lightTheme}>
+        <App />
+      </ThemeProvider>
+    </QueryClientProvider>
+  </SocketProvider>
   // </React.StrictMode>
 );
 

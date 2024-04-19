@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("erp_token");
+    const token = localStorage.getItem("game_zone_token");
     config.headers = {
       Authorization: token,
       token: token,

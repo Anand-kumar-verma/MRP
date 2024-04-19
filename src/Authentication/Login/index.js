@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useMutation } from "react-query";
-import { loginFn } from "../../Services/Login";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import bg from "../../Assets/bg.png";
-import logo from "../../Assets/capture.jpg";
-import { CircleOutlined } from "@mui/icons-material";
-import { AiOutlineMail, AiFillLock } from "react-icons/ai";
-import { useForm } from "react-hook-form";
-import { empLoginFn } from "../../Services/Login/EmpLogin";
-import { Switch } from "@mui/material";
 import RefreshSharpIcon from "@mui/icons-material/RefreshSharp";
+import { Switch } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { AiFillLock, AiOutlineMail } from "react-icons/ai";
+import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import bg from "../../Assets/bg.png";
 
 const LogIn = () => {
   const isLogined = localStorage.getItem("erp_token");
@@ -34,7 +30,7 @@ const LogIn = () => {
   }
 
   const { mutate: loginAdmin, isLoading: isLoadingAdmin } = useMutation(
-    loginFn,
+    // loginFn,
     {
       onSuccess: (response) => {
         // console.log(response);
@@ -52,13 +48,14 @@ const LogIn = () => {
         }
         window.location.reload()
         toast(response?.data?.message);
+        navigate("/dashboard")
       },
-      
+     
     }
     
   );
   const { mutate: employeeLogin, isLoading: isLoadingEmployee } = useMutation(
-    empLoginFn,
+    // empLoginFn,
     {
       onSuccess: (response) => {
         console.log(response);
@@ -83,6 +80,7 @@ const LogIn = () => {
           // toast("Something went Wrong");
         }
         window.location.reload()
+        navigate("/dashboard");
       },
     }
   );
@@ -96,7 +94,7 @@ const LogIn = () => {
       <div className="flex w-screen relative">
         <img src={bg} className="w-full h-screen object-fill absolute" alt="" />
         <div className="absolute h-screen bg-red w-[38%] left-0 top-0  text-white flex items-center justify-center">
-          <p className="text-[10rem] font-bold pt-[3%] font-poppins">MRP</p>
+          <p className="text-[5rem] font-bold pt-[3%] font-poppins">GAME ZONE</p>
         </div>
 
         <div className="flex justify-end  h-screen w-[40%] absolute right-0 top-0 overflow-auto z-20 shadow-">
@@ -106,9 +104,9 @@ const LogIn = () => {
               onSubmit={handleSubmit(submithandler)}
             >
               <div className="flex flex-col gap-5 items-center">
-                <img className="Capture w-[25rem] pt-20" src={logo} alt="" />
+                {/* <img className="Capture w-[25rem] pt-20" src={logo} alt="" /> */}
                 <div>
-                  Employee{" "}
+                  {/* Employee{" "} */}
                   <Switch
                     checked={isAdmin}
                     onChange={() => setIsAdmin(!isAdmin)}
