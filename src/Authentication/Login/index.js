@@ -19,9 +19,14 @@ const LogIn = () => {
   const { register, handleSubmit, reset } = useForm();
 
   function submithandler(data) {
-    console.log(data.username);
+    console.log(data,isAdmin);
+    const reqBody = {
+      email:data?.username,
+      password:data?.password
+    }
     if (isAdmin) {
-      loginAdmin(data);
+      
+      loginAdmin(reqBody);
     } else {
       const reqBody = {
         email: data.username,
@@ -37,15 +42,16 @@ const LogIn = () => {
     loginFn,
     {
       onSuccess: (response) => {
+        console.log(response);
         // console.log(response);
-        if (response?.data) {
-          localStorage.setItem("erp_response", JSON.stringify(response?.data));
+        if (response?.data?.success) {
+          localStorage.setItem("erp_response", JSON.stringify(response?.user));
           localStorage.setItem("erp_token", response?.data?.token);
-          localStorage.setItem("erp_company_id", response?.data?.company_id);
-          localStorage.setItem("role", response?.data?.role);
-          localStorage.setItem("role_user", response?.data?.role_user);
+          localStorage.setItem("erp_company_id", response?.data?.user?._id);
+          localStorage.setItem("role", response?.data?.user?.type);
+          localStorage.setItem("role_user", response?.data?.user?.type);
           navigate("/dashboard", {
-            state: { role: response?.data?.role_user },
+            state: { role:  response?.data?.user?.type },
           });
         } else {
           toast("Something went Wrong");

@@ -23,7 +23,6 @@ import { useNavigate } from "react-router-dom";
 export default function Contacts() {
   const navigate = useNavigate();
   const [customer, setcustomer] = React.useState([]);
-  const [openCustomDialogBox, setOpenCustomDialogBox] = React.useState(false);
   const [dummy, setDummy] = React.useState();
   const [pageCount, setPageCount] = React.useState(5);
   const [page, setPage] = React.useState(1);
@@ -93,7 +92,7 @@ export default function Contacts() {
     } else {
       setCheckedBox(
         customer.map((singleItem, index) => {
-          return Number(singleItem.customer_id);
+          return Number(singleItem._id);
         })
       );
     }
@@ -267,22 +266,22 @@ export default function Contacts() {
                     <p>No Data Found</p>
                   </div>
                 ) : (
-                  customer.map((row, index) => (
+                  customer?.map((row, index) => (
                     <StyledTableRow
-                    className="hover:!bg-purple-200"
-                      // onClick={()=>navigate(`/show-details/${row?.customer_id}`)}
+                      className="hover:!bg-purple-200"
+                      // onClick={()=>navigate(`/show-details/${row?._id}`)}
                       key={index}
                     >
                       <StyledTableCell component="th" scope="row">
                         <div className=" flex justify-center">
                           <span
                             onClick={() =>
-                              singleCheckBox(Number(row?.customer_id))
+                              singleCheckBox(Number(row?._id))
                             }
                           >
                             <Checkbox
                               checked={
-                                checkedBox.includes(Number(row?.customer_id))
+                                checkedBox.includes(Number(row?._id))
                                   ? true
                                   : false
                               }
@@ -291,26 +290,26 @@ export default function Contacts() {
                         </div>
                       </StyledTableCell>
                       <StyledTableCell component="th" scope="row">
-                        {row?.name}
+                        {row?.customer_name}
                       </StyledTableCell>
                       <StyledTableCell component="th" scope="row">
                         <span
                           className="!text-blue-600 cursor-pointer"
                           onClick={() =>
-                            navigate(`/customer-details/${row?.customer_id}`)
+                            navigate(`/customer-details/${row?._id}`)
                           }
                         >
-                          {row?.email}
+                          {row?.customer_email}
                         </span>
                       </StyledTableCell>
                       <StyledTableCell component="th" scope="row">
-                        {row?.mobile}
+                        {row?.customer_mobile}
                       </StyledTableCell>
                       <StyledTableCell align="">
-                        {new Date(row?.created_at).toDateString()}
+                        {new Date(row?.createdAt).toDateString()}
                       </StyledTableCell>
                       <StyledTableCell align="">
-                        {new Date(row?.updated_at).toDateString()}
+                        {new Date(row?.updatedAt).toDateString()}
                       </StyledTableCell>
                       {/* <StyledTableCell align="" className='!flex !text-red-600'>
                     <span className='cursor-pointer text-[1.5rem]'

@@ -8,16 +8,15 @@ import Signup from "./Authentication/Signup";
 import CompanyCreation from "./Authentication/CompanyCreation";
 import EmpLogin from "./Authentication/Login/EmpLogin";
 import DrawingApp from "./Test";
+import Calculator from "./Pages/Calculator";
 
 export const App = () => {
-
-
   return (
     <BrowserRouter>
       <Routes>
      {/* adf */}
-        <Route path="/doc" element={ <DrawingApp/>} />
-        <Route path="/emp-login" element={<EmpLogin />} />
+        <Route path="/doc" element={<DrawingApp/>}/>
+        <Route path="/emp-login" element={<EmpLogin/>}/>
         <Route path="/" index element={<LogIn />} />
         <Route path="/login/:manufacturer" element={<LogIn />} />
         <Route path="/signup" element={<Signup />} />

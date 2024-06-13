@@ -54,9 +54,6 @@ export default function Project() {
 
 
 
-
-  const tableData = data?.data?.data
-
   return (
     <>
       <div className="w-full flex justify-between gap-2 items-center py-2  px-4  text-white">
@@ -109,7 +106,44 @@ export default function Project() {
             // <span>Manager approved</span>,
             <span>View</span>,
           ]}
-          tablerow={tableData?.map(
+          tablerow={[
+            {
+              id:1,
+              project_name:"Hospital",
+              type_of_project:"Tactical",
+              start_date:"2023-12-12",
+              end_date:"2024-12-12",
+              materials_amount:"100000000",
+              operations_amount:"3000000",
+              total_amount:"13000000",
+              currency:"INR",
+              manager_approval_status:"Success",
+            },
+            {
+              id:2,
+              project_name:"Hospital",
+              type_of_project:"Tactical",
+              start_date:"2023-12-12",
+              end_date:"2024-12-12",
+              materials_amount:"100000000",
+              operations_amount:"3000000",
+              total_amount:"13000000",
+              currency:"INR",
+              manager_approval_status:"Success",
+            },
+            {
+              id:3,
+              project_name:"Hospital",
+              type_of_project:"Tactical",
+              start_date:"2023-12-12",
+              end_date:"2024-12-12",
+              materials_amount:"100000000",
+              operations_amount:"3000000",
+              total_amount:"13000000",
+              currency:"INR",
+              manager_approval_status:"Success",
+            },
+          ]?.map(
             (i) => {
               return [
                 <span onClick={() => singleCheckBox(Number(i?.id))}>

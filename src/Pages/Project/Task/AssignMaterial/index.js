@@ -138,8 +138,8 @@ export default function AssignMaterial({
             </span>,
             <span>Task ID</span>,
             <span>Name</span>,
-            <span>Assign To</span>,
             <span>Assign By</span>,
+            <span>Assign To</span>,
             <span>Project</span>,
             <span>Estimated_time/h</span>,
             <span>Spent Time/h</span>,
@@ -152,7 +152,80 @@ export default function AssignMaterial({
           //   project_id ? taskList?.data?.data?filter((i)=>i?.project?.id === Number(project_id))
           tablerow={
 
-            tableData?.map((i) => {
+            [
+              {
+        id:1,
+        task_name:"Cutting",
+        email:"appu@gmail.com",
+        project_name:"	Hospital",
+        estimated_time:"2 hrs",
+        spent_time:"1 hrs",
+        remaining_hours:"1 hrs",
+        start_date:"2024-12-12",
+        end_date:"2025-01-15",
+        assignee:"nitesh@gmail.com"
+      },
+      {
+        id:1,
+        task_name:"Cutting",
+        email:"appu@gmail.com",
+        project_name:"	Hospital",
+        estimated_time:"2 hrs",
+        spent_time:"1 hrs",
+        remaining_hours:"1 hrs",
+        start_date:"2024-12-12",
+        end_date:"2025-01-15",
+        assignee:"nitesh@gmail.com"
+      },
+      {
+        id:2,
+        task_name:"Cutting",
+        email:"appu@gmail.com",
+        project_name:"	Hospital",
+        estimated_time:"2 hrs",
+        spent_time:"1 hrs",
+        remaining_hours:"1 hrs",
+        start_date:"2024-12-12",
+        end_date:"2025-01-15",
+        assignee:"nitesh@gmail.com"
+      },
+      {
+        id:3,
+        task_name:"Cutting",
+        email:"appu@gmail.com",
+        project_name:"	Hospital",
+        estimated_time:"2 hrs",
+        spent_time:"1 hrs",
+        remaining_hours:"1 hrs",
+        start_date:"2024-12-12",
+        end_date:"2025-01-15",
+        assignee:"nitesh@gmail.com"
+      },
+      {
+        id:4,
+        task_name:"Cutting",
+        email:"appu@gmail.com",
+        project_name:"	Hospital",
+        estimated_time:"2 hrs",
+        spent_time:"1 hrs",
+        remaining_hours:"1 hrs",
+        start_date:"2024-12-12",
+        end_date:"2025-01-15",
+        assignee:"nitesh@gmail.com"
+      },
+      {
+        id:5,
+        task_name:"Cutting",
+        email:"appu@gmail.com",
+        project_name:"	Hospital",
+        estimated_time:"2 hrs",
+        spent_time:"1 hrs",
+        remaining_hours:"1 hrs",
+        start_date:"2024-12-12",
+        end_date:"2025-01-15",
+        assignee:"nitesh@gmail.com"
+      },
+            ]?.map((i) => {
               return [
                 <span
                 //   onClick={() => singleCheckBox(Number(i?.id))}
@@ -174,7 +247,7 @@ export default function AssignMaterial({
                     navidate(`/employee-details/${i?.assignee?.emp_id}`)
                   }
                 >
-                  {i?.assignee?.email}
+                  {i?.email}
                 </span>,
                 <span
                   className="cursor-pointer text-blue-700"
@@ -183,7 +256,7 @@ export default function AssignMaterial({
                     navidate(`/employee-details/${i?.accountable?.emp_id}`)
                   }
                 >
-                  {i?.accountable?.email}
+                  {i?.assignee}
                 </span>,
                 <span>{i?.project?.project_name}</span>,
                 <span>{i?.estimated_time}</span>,

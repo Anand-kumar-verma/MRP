@@ -26,31 +26,41 @@ const Signup = () => {
 
   const [hidePssword, setHidePssword] = useState(false);
   const { register, handleSubmit, reset } = useForm();
-
+  const [type,setType] = useState("")
   function submithandler(data) {
     console.log(data);
-    mutate(data);
+    if(type === "") return toast("Plese Select your type")
+    const reqboody = {
+      f_name: data?.first_name,
+      l_name: data?.last_name,
+      email: data?.email,
+      password: data?.password,
+      type:type
+        // data?.is_manufacturer === "False" ? "Manufacturer Based" : "Project Based",
+    };
+    mutate(reqboody);
     reset();
   }
 
   const { mutate, isLoading } = useMutation(signupFn, {
     onSuccess: (response) => {
       console.log(response);
-      if (response?.data) {
-        localStorage.setItem(
-          "erm_signup_response",
-          JSON.stringify(response?.data)
-        );
-        localStorage.setItem("erm_user_id", response?.data?.user_id);
+      if (response?.data?.success) {
+        navigate("/")
+        // localStorage.setItem(
+        //   "erm_signup_response",
+        //   JSON.stringify(response?.data)
+        // );
+        // localStorage.setItem("erm_user_id", response?.data?.user_id);
 
-        localStorage.setItem("token1", response?.data?.token);
+        // localStorage.setItem("token1", response?.data?.token);
       } else {
         toast("Something went Wrong");
       }
-      toast(response?.data?.message);
-      response?.data?.message ===
-        "Project Based Admin user created successfully." &&
-        navigate("/create-company");
+      // toast(response?.data?.message);
+      // response?.data?.message ===
+      //   "Project Based Admin user created successfully." &&
+      //   navigate("/create-company");
     },
   });
 
@@ -162,16 +172,35 @@ const Signup = () => {
                     className="!flex"
                   >
                     <FormControlLabel
-                      value="True"
+                      value="Manufacturer Based"
                       control={<Radio />}
                       label="Manufacturer"
-                      {...register("is_manufacturer")}
+                      // {...register("is_manufacturer")}
+                      onChange={()=>setType("Manufacturer Based")}
                     />
                     <FormControlLabel
-                      value="False"
+                      value="Project Based"
                       control={<Radio />}
                       label="Project"
-                      {...register("is_manufacturer")}
+                      // {...register("is_manufacturer")}
+                      onChange={()=>setType("Project Based")}
+
+                    />
+                    <FormControlLabel
+                      value="Associate"
+                      control={<Radio />}
+                      label="Associate"
+                      // {...register("is_manufacturer")}
+                      onChange={()=>setType("Associate")}
+
+                    />
+                    <FormControlLabel
+                      value="Manager"
+                      control={<Radio />}
+                      label="Manager"
+                      // {...register("is_manufacturer")}
+                      onChange={()=>setType("Manager")}
+
                     />
                   </RadioGroup>
                 </FormControl>

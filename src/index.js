@@ -24,7 +24,7 @@ root.render(
   // <React.StrictMode>
 
   <QueryClientProvider client={queryClient}>
-    <ToastContainer
+    {/* <ToastContainer
       position="top-right"
       autoClose={2000}
       hideProgressBar={false}
@@ -34,7 +34,7 @@ root.render(
       rtl={false}
       toastClassName="!rounded !capitalize top-3 lg:!mx-0"
       pauseOnHover={false}
-    />
+    /> */}
     <ThemeProvider theme={lightTheme}>
       <App />
     </ThemeProvider>

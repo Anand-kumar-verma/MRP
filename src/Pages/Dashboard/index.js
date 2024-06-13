@@ -29,77 +29,74 @@ const Dashboard = () => {
 
   const [product_data,setProduct_data ]  = useState([])
 
-  useEffect(() => {
-    category_distribution_pie_chart_Fn({
-      setloding,
-      setData: setCat_distribution,
-    });
-    donut_chart_production_Fn({
-      setloding,
-      setData: setDonut_chart_production,
-    });
-    donut_chart_resources_Fn({
-      setloding,
-      setData: setDont_chart_resources,
-    });
+  // useEffect(() => {
+  //   category_distribution_pie_chart_Fn({
+  //     setloding,
+  //     setData: setCat_distribution,
+  //   });
+  //   donut_chart_production_Fn({
+  //     setloding,
+  //     setData: setDonut_chart_production,
+  //   });
+  //   donut_chart_resources_Fn({
+  //     setloding,
+  //     setData: setDont_chart_resources,
+  //   });
 
-    getMaterialsInventoryList({
-      setloding,
-        page,
-        pageCount,
-        setproduct:setmaterial_data,
-        setSubData,
-        searchValue
-    })
-    getProductInventoryList({
-       setloding,
-        page,
-        pageCount,
-        setproduct : setProduct_data,
-        setSubData,
-        searchValue
-    })
-
-
-  }, []);
+  //   getMaterialsInventoryList({
+  //     setloding,
+  //       page,
+  //       pageCount,
+  //       setproduct:setmaterial_data,
+  //       setSubData,
+  //       searchValue
+  //   })
+  //   getProductInventoryList({
+  //      setloding,
+  //       page,
+  //       pageCount,
+  //       setproduct : setProduct_data,
+  //       setSubData,
+  //       searchValue
+  //   })
 
 
-  const { data } = useQuery(
-    ["projectlist"],
-    () => ProjectListFn({ search:"", limit: "" }),
-    {
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-      refetchOnWindowFocus: false,
-      onSuccess: (res) => {
-        console.log("response", res);
-      },
-    }
-  );
-  const project_data = data?.data?.data || []
+  // }, []);
 
 
-  const { data: taskList } = useQuery(
-    ["taskList"],
-    () => TaskListFunction({ search: "" }),
-    {
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-      refetchOnWindowFocus: false,
-    }
-  );
-  const task_data = taskList?.data?.data || []
+  // const { data } = useQuery(
+  //   ["projectlist"],
+  //   () => ProjectListFn({ search:"", limit: "" }),
+  //   {
+  //     refetchOnMount: false,
+  //     refetchOnReconnect: false,
+  //     refetchOnWindowFocus: false,
+  //     onSuccess: (res) => {
+  //       console.log("response", res);
+  //     },
+  //   }
+  // );
+  // const project_data = data?.data?.data || []
 
-  console.log(project_data);
+  // const { data: taskList } = useQuery(
+  //   ["taskList"],
+  //   () => TaskListFunction({ search: "" }),
+  //   {
+  //     refetchOnMount: false,
+  //     refetchOnReconnect: false,
+  //     refetchOnWindowFocus: false,
+  //   }
+  // );
+  const task_data = []
+
+  // console.log(project_data);
 
   // api's data
   const time_series_material_data ={
     series: [
       {
         name: "Material",
-        data:!material_data ? [] : material_data?.map((i)=>{
-          return filter_stock_data === "instock" ? Number(i?.in_stock) : Number(i?.committed) || 0
-        })
+        data:[10,80,9,40]
       },
     ],
     options: {
@@ -127,9 +124,7 @@ const Dashboard = () => {
         },
       },
       xaxis: {
-        categories: !material_data ? [] : material_data?.map((i)=>{
-          return i?.material_name || ""
-        })
+        categories: ['Sand','Stone','Cement','Moltar']
       },
     },
   };
@@ -138,10 +133,8 @@ const Dashboard = () => {
   const time_series_Product_data ={
     series: [
       {
-        name: "Product",
-        data:!product_data ? [] : product_data?.map((i)=>{
-          return filter_stock_data_product === "instock" ? Number(i?.in_stock) : Number(i?.committed) || 0
-        })
+        name: "Material",
+        data:[100,20,40,200]
       },
     ],
     options: {
@@ -169,9 +162,7 @@ const Dashboard = () => {
         },
       },
       xaxis: {
-        categories: !product_data ? [] : product_data?.map((i)=>{
-          return i?.product_name || ""
-        })
+        categories: ['Sand','Stone','Cement','Moltar']
       },
     },
   };
@@ -179,9 +170,9 @@ const Dashboard = () => {
   // api's data
   const category_distribution = {
     series: [
-      cat_distribution[0]?.used_hours || 0,
-      cat_distribution[0]?.cost || 0,
-      cat_distribution[0]?.quantity_produced || 0,
+     10 || 0,
+     20 || 0,
+      6 || 0,
     ],
     options: {
       chart: {
@@ -208,17 +199,7 @@ const Dashboard = () => {
   };
 
   const stacked_barchart = {
-    series: 
-    !task_data ? [] : task_data?.map((i)=>{
-      return {
-        // name: i?.project?.project_name || "",
-        data: [i?.estimated_time || 0,
-          i?.spent_time || 0,
-          i?.remaining_hours || 0,
-          i?.spent_cost || 0
-          ],
-      }
-    })
+    series: [{data:[10,20,30,30]},{data:[10,20,30,30]},{data:[10,20,30,30]}]
 ,
     options: {
       chart: {
@@ -497,10 +478,10 @@ const Dashboard = () => {
       {
         type: "boxPlot",
         data:
-        !project_data ? [] : project_data?.map((i)=>{
+        [1,2,3,4]?.map((i)=>{
           return {
-            x: i?.project_name || "",
-            y: [i?.operations_amount || 0, i?.materials_amount || 0, i?.total_amount || 0, i?.total_price || 0,i?.no_of_phases || 0],
+            x: "Disign Building" || "",
+            y: [200 || 0, 300 || 0, 400|| 0, 100 || 0,3 || 0],
           }
         })
       },
@@ -527,7 +508,7 @@ const Dashboard = () => {
 
   // api's data
   const donut_chart = {
-    series: donut_chart_production?.quantities || [0, 0],
+    series: [10,30] || [0, 0],
     options: {
       chart: {
         width: 380,
@@ -571,7 +552,7 @@ const Dashboard = () => {
 
   // api's data
   const donut_chart_resources = {
-    series: dont_chart_resources?.quantities || [0, 0],
+    series: [23,23] || [0, 0],
     options: {
       chart: {
         width: 380,

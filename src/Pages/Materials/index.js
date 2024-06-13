@@ -269,12 +269,150 @@ export default function Materials() {
               </div>
             ) : (
               <TableBody>
-                {product.length === 0 ? (
+                {product.length !== 0 ? (
                   <div className="flex w-full justify-center">
                     <p>No Data Found</p>
                   </div>
                 ) : (
-                  product.map((row, index) => (
+                  [
+                    {
+                      bom_id:1,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:2,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:3,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:4,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:5,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:6,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:7,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:8,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:9,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:10,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:11,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:12,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+
+                    {
+                      bom_id:13,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:14,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      bom_id:15,
+                      material_name:"Wood",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+
+                  ].map((row, index) => (
                     <StyledTableRow key={index} className="hover:!bg-purple-200">
                       <StyledTableCell component="th" scope="row">
                         <div className=" flex justify-center">

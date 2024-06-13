@@ -91,7 +91,7 @@ export default function Vendors() {
     } else {
       setCheckedBox(
         vendor.map((singleItem, index) => {
-          return Number(singleItem.vendor_id);
+          return Number(singleItem._id);
         })
       );
     }
@@ -107,7 +107,7 @@ export default function Vendors() {
   }
 
   async function deleteFunctionCalled() {
-    console.log(checkedBox);
+    // console.log(checkedBox);
 
     if (window.confirm("Are You Confirm ?") === true) {
       setloding(true);
@@ -122,7 +122,6 @@ export default function Vendors() {
             },
           }
         );
-
         if (response?.data?.message) {
           setDummy(response);
           setCheckedBox([]);
@@ -264,7 +263,7 @@ export default function Vendors() {
                     <p>No Data Found</p>
                   </div>
                 ) : (
-                  vendor.map((row, index) => (
+                  vendor?.map((row, index) => (
                     <StyledTableRow
                       key={index}
                       className="hover:!bg-purple-200"
@@ -273,12 +272,12 @@ export default function Vendors() {
                         <div className=" flex justify-center ">
                           <span
                             onClick={() =>
-                              singleCheckBox(Number(row?.vendor_id))
+                              singleCheckBox(Number(row?._id))
                             }
                           >
                             <Checkbox
                               checked={
-                                checkedBox.includes(Number(row?.vendor_id))
+                                checkedBox.includes(Number(row?._id))
                                   ? true
                                   : false
                               }
@@ -287,26 +286,26 @@ export default function Vendors() {
                         </div>
                       </StyledTableCell>
                       <StyledTableCell component="th" scope="row">
-                        {row?.name}
+                        {row?.vendor_name}
                       </StyledTableCell>
                       <StyledTableCell
                         component="th"
                         scope="row"
                         sx={{ color: "blue", cursor: "pointer" }}
                         onClick={() =>
-                          navigate(`/show-details/${row?.vendor_id}`)
+                          navigate(`/show-details/${row?._id}`)
                         }
                       >
-                        {row?.email}
+                        {row?.vendor_email}
                       </StyledTableCell>
                       <StyledTableCell component="th" scope="row">
-                        {row?.mobile}
+                        {row?.vendor_mobile}
                       </StyledTableCell>
                       <StyledTableCell align="">
-                        {new Date(row?.created_at).toDateString()}
+                        {new Date(row?.createdAt).toDateString()}
                       </StyledTableCell>
                       <StyledTableCell align="">
-                        {new Date(row?.updated_at).toDateString()}
+                        {new Date(row?.updatedAt).toDateString()}
                       </StyledTableCell>
                       {/* <StyledTableCell align="" className='!flex !text-red-600'>
                    <span className='cursor-pointer text-[1.5rem]'

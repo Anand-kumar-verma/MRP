@@ -4,6 +4,6 @@
 
 // export const baseUrl = "http://192.168.1.90:9898/";
 
-// export const baseUrl = "http://192.168.1.90:9898/";
+export const baseUrl = "http://localhost:5000";
 
-export const baseUrl = "https://mrpb1.aaragroups.com/";
+// export const baseUrl = "https://mrpb1.aaragroups.com/";

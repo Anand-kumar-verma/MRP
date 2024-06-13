@@ -15,7 +15,40 @@ export const GanttChart = () => {
 
 
 let main_data = []
-     main_data = data?.map((i) => {
+     main_data = [
+        {
+            id:1,
+            task_name:"Cutting",
+            spent_time:"10",
+            estimated_time:"12",
+            start_date:"2024-12-12",
+            end_date:"2025-01-12"
+        },
+        {
+            id:2,
+            task_name:"Penting",
+            spent_time:"10",
+            estimated_time:"15",
+            start_date:"2024-12-12",
+            end_date:"2025-01-12"
+        },
+        {
+            id:3,
+            task_name:"Maining",
+            spent_time:"24",
+            estimated_time:"24",
+            start_date:"2024-12-12",
+            end_date:"2025-01-12"
+        },
+        {
+            id:4,
+            task_name:"Shielding",
+            spent_time:"10",
+            estimated_time:"24",
+            start_date:"2024-12-12",
+            end_date:"2025-01-12"
+        }
+     ]?.map((i) => {
         return {
             start:new Date(Number(i?.start_date?.slice(0, 10)?.substring(0, i?.start_date?.slice(0, 10)?.indexOf("-"))),Number(i?.start_date?.slice(0, 10)?.substring(i?.start_date?.slice(0, 10)?.indexOf("-") + 1, i?.start_date?.slice(0, 10)?.indexOf('-', i?.start_date?.slice(0, 10)?.indexOf('-') + 1)) - 1),Number(i?.start_date?.slice(0, 10)?.substring(i?.start_date?.slice(0, 10)?.indexOf('-', i?.start_date?.slice(0, 10)?.indexOf('-') + 1) + 1))) || new Date(),
             end:new Date(Number(i?.end_date?.slice(0, 10)?.substring(0, i?.end_date?.slice(0, 10)?.indexOf("-"))),Number(i?.end_date?.slice(0, 10)?.substring(i?.end_date?.slice(0, 10)?.indexOf("-") + 1, i?.end_date?.slice(0, 10)?.indexOf('-', i?.end_date?.slice(0, 10)?.indexOf('-') + 1)) - 1),Number(i?.end_date?.slice(0, 10)?.substring(i?.end_date?.slice(0, 10)?.indexOf('-', i?.end_date?.slice(0, 10)?.indexOf('-') + 1) + 1))) || new Date(),
@@ -57,7 +90,7 @@ let main = [
       }
 ]
 
-console.log(data)
+
 
 
     return (
@@ -84,7 +117,7 @@ console.log(data)
             </div>
             <div className='mt-5'>
             <Gantt
-                tasks={data.length === 0 ? main : main_data}
+                tasks={main_data?.length === 0 ? main : main_data}
               
             // viewMode={view}
             // onDateChange={onTaskChange}

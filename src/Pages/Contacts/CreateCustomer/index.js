@@ -99,35 +99,35 @@ const CreateCustomer = () => {
   };
 
   function saveFunctionCalled(message) {
-    if (data.company_name === "") return toast.warn("Enter the company name");
-    if (data.tax_vat === "") return toast.warn("Enter the Tax ID/VAT Number");
-    if (data.customer_mobile === "")
-      return toast.warn("Enter the customer mobile");
-    if (data.customer_email === "")
-      return toast.warn("Enter the customer email");
-    if (data.customer_name === "") return toast.warn("Enter the customer name");
-    if (data.customer_type === "") return toast.warn("Enter the customer type");
-    if (data.firm_status === "") return toast.warn("Enter the firm status");
-    if (data.gst_category === "") return toast.warn("Enter the gst category");
-    if (data.buiness_type === "") return toast.warn("Enter the buiness type");
-    if (data.place_of_supply === "")
-      return toast.warn("Enter the place of supply");
-    if (data.gst_number === "") return toast.warn("Enter the GST number");
-    if (data.pan_number === "") return toast.warn("Enter the PAN number");
-    if (data.address === "") return toast.warn("Enter the address");
-    if (data.area === "") return toast.warn("Enter the area");
-    if (data.country === "") return toast.warn("Enter the country");
-    if (data.state === "") return toast.warn("Enter the state");
-    if (data.city === "") return toast.warn("Enter the city");
-    if (data.pin_code === "") return toast.warn("Enter the pin code");
-    if (data.bank_name === "") return toast.warn("Enter the bank name");
-    if (data.account_number === "")
-      return toast.warn("Enter the bank account number");
-    if (data.branch === "") return toast.warn("Enter the branch");
-    if (data.Ifsc === "") return toast.warn("Enter the bank Ifsc");
+    // if (data.company_name === "") return toast.warn("Enter the company name");
+    // if (data.tax_vat === "") return toast.warn("Enter the Tax ID/VAT Number");
+    // if (data.customer_mobile === "")
+    //   return toast.warn("Enter the customer mobile");
+    // if (data.customer_email === "")
+    //   return toast.warn("Enter the customer email");
+    // if (data.customer_name === "") return toast.warn("Enter the customer name");
+    // if (data.customer_type === "") return toast.warn("Enter the customer type");
+    // if (data.firm_status === "") return toast.warn("Enter the firm status");
+    // if (data.gst_category === "") return toast.warn("Enter the gst category");
+    // if (data.buiness_type === "") return toast.warn("Enter the buiness type");
+    // if (data.place_of_supply === "")
+    //   return toast.warn("Enter the place of supply");
+    // if (data.gst_number === "") return toast.warn("Enter the GST number");
+    // if (data.pan_number === "") return toast.warn("Enter the PAN number");
+    // if (data.address === "") return toast.warn("Enter the address");
+    // if (data.area === "") return toast.warn("Enter the area");
+    // if (data.country === "") return toast.warn("Enter the country");
+    // if (data.state === "") return toast.warn("Enter the state");
+    // if (data.city === "") return toast.warn("Enter the city");
+    // if (data.pin_code === "") return toast.warn("Enter the pin code");
+    // if (data.bank_name === "") return toast.warn("Enter the bank name");
+    // if (data.account_number === "")
+    //   return toast.warn("Enter the bank account number");
+    // if (data.branch === "") return toast.warn("Enter the branch");
+    // if (data.Ifsc === "") return toast.warn("Enter the bank Ifsc");
 
     createCustomerFn({
-      formData: JSON.stringify(data),
+      formData: data,
       setloding,
       navigate,
       link: message === "save" ? "/contacts" : "/contact/create-contact",
@@ -367,10 +367,10 @@ const CreateCustomer = () => {
                       setValue(e.target.value);
                     }}
                   >
-                    {businessData.map((item) => {
+                    {['Partnership','Sole Proprietorship'].map((item) => {
                       return (
-                        <MenuItem key={2} value={item?.name}>
-                          {item?.name}
+                        <MenuItem key={2} value={item}>
+                          {item}
                         </MenuItem>
                       );
                     })}
@@ -410,10 +410,10 @@ const CreateCustomer = () => {
                       setValue(e.target.value);
                     }}
                   >
-                    {splyPlace.map((item) => {
+                    {['place of supply 1','place of supply 2','place of supply 3'].map((item) => {
                       return (
-                        <MenuItem key={1} value={item?.purchase_of_supply}>
-                          {item?.purchase_of_supply}
+                        <MenuItem key={1} value={item}>
+                          {item}
                         </MenuItem>
                       );
                     })}

@@ -197,12 +197,147 @@ export default function Product() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {product.length === 0 ? (
+              {product.length !== 0 ? (
                 <div className="flex w-full justify-center">
                   <p>No Data Found</p>
                 </div>
               ) : (
-                product.map((row, index) => (
+                [                    {
+                      id:1,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:2,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:3,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:4,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:5,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:6,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:7,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:8,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:9,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:10,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:11,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:12,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+
+                    {
+                      id:13,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:14,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    },
+                    {
+                      id:15,
+                      name:"Bed",
+                      category:"Medium",
+                      unit_of_measure:"pcs",
+                      created_at:"2024-12-12",
+                      updated_at:"2024-12-01",
+                      timeline:"2024-12-01"
+                    }].map((row, index) => (
                   <StyledTableRow key={index} className="hover:!bg-purple-200">
                     <StyledTableCell component="th" scope="row" >
                       <div className=" flex justify-center">

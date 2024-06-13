@@ -79,7 +79,7 @@ export default function WorkersList() {
     }
   );
 
-  // console.log(employeelist.data.data)
+  console.log(employeelist?.data?.data)
 
   const { data: getRole } = useQuery(["role"], () => projectRole(), {
     refetchOnMount: false,
@@ -95,12 +95,12 @@ export default function WorkersList() {
   //   .catch((e)=>console.log(e))
   // }
 
-  const tableBody = employeelist?.data?.data?.map((i) => {
+  const tableBody = employeelist?.data?.data?.filter((i)=>i?.type==="Associate")?.map((i,index) => {
     return {
-      emp_id: i?.emp_id,
-      name: i?.name,
-      designation: i?.designation?.designation,
-      current_cost_per_hours: i?.current_cost_per_hours,
+      emp_id: i?._id,
+      name: i?.f_name,
+      designation: "Cutting",
+      current_cost_per_hours: index+10
     };
   });
 

@@ -27,8 +27,8 @@ const BasicData = ({ formik, setproject_id, project_id }) => {
       <TextField
         required
         select
-        id="project_name"
-        name="project_name"
+        id="project_type"
+        name="project_type"
         label="Enter Project Name"
         type="text"
         sx={{ color: "red" }}
@@ -36,13 +36,15 @@ const BasicData = ({ formik, setproject_id, project_id }) => {
           shrink: true,
         }}
         value={project_id}
-        onChange={(e) => setproject_id(e.target.value)}
+        // onChange={(e) => setproject_id(e.target.value)}
+        // onChange={()=>formik?.setFieldValue("project_type")}
       >
-        {projecList?.map((i) => {
+        {["Strategic","Tactical","Operational"]?.map((i) => {
           return (
             <MenuItem
-              value={i?.id}
-            >{`${i?.project_name} | ${i?.customer?.email}`}</MenuItem>
+              value={i}
+              onClick={()=>formik?.setFieldValue("project_type",i)}
+            >{`${i}`}</MenuItem>
           );
         })}
       </TextField>

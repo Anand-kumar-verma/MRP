@@ -1,13 +1,13 @@
 export const API_URLS = {
   // mrp api
-  login: "login-api-user/",
+  login: "/api/user/login-api-user",
   loginEmployee: "project/login_employee_api/",
-  signup: "create-admin-user/",
+  signup: "/api/user/create-admin-user",
   create_sales_order_details: "get-or-create-sales-order-list/",
   get_or_create_purchase_order: "get-or-create-purchase-order-list/",
   delete_purchase_order: "purchase-order-delete/",
-  create_get_customer_api: "create-get-customer-api/",
-  create_get_vendor_api: "create-get-vendor-api/",
+  create_get_customer_api: "/api/user/create-get-customer-api",
+  create_get_vendor_api: "/api/user/create-get-vendor-api",
   create_get_product_api: "create-get-product/",
   create_bom_api: "create-get-list-bom/",
   get_unit_of_product: "create-get-unit-major/",
@@ -100,7 +100,7 @@ export const API_URLS = {
   // project pannel api
   project_role: "project/role-list-api/",
   designation: "project/degination-list-api/",
-  employee: "project/employee_list_user_profile_api/",
+  employee: "/api/user/getAllMrpUser",
   estimate: "project/estimate_project_api/",
   operations: "list-production-operations/",
   customers: "list-customer/",

@@ -214,6 +214,15 @@ const Sidebar = () => {
           </ListItemButton>
         );
       })}
+      <ListItemButton
+        className="!text-white bg-white !rounded-lg !mt-4 !p-2 !w-full bg-gradient-to-r
+         from-blue-500 to-purple-500 text-center !flex !justify-center"
+        onClick={() => navigate("/calculator")}
+      >
+        <ListItemIcon className="!text-white ">
+         Calculator
+        </ListItemIcon>
+      </ListItemButton>
 
       {
         <ListItemButton
@@ -257,6 +266,7 @@ const Sidebar = () => {
           setClickedData={setClickedData}
         />
       )}
+      
     </List>
   );
 };

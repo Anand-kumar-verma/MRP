@@ -88,6 +88,7 @@ import AllPermissions from "../Pages/Setting/Permission/AllPermissions";
 import UpdatePermissions from "../Pages/Setting/Permission/UpdatePermissions";
 import { GanttChart } from "../Components/GanttChart";
 import AssignMaterial from "../Pages/Project/Task/AssignMaterial";
+import Calculator from "../Pages/Calculator";
 
 export const routes = [
   {
@@ -95,6 +96,12 @@ export const routes = [
     path: "/sales",
     component: <Sales />,
     navItem: "Sales",
+  },
+  {
+    id: 353531,
+    path: "/calculator",
+    component: <Calculator />,
+    navItem: "Calculator",
   },
   {
     id: 2,

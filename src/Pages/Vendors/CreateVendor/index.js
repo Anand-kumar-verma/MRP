@@ -111,28 +111,28 @@ const CreateVendor = () => {
     if (data.vendor_mobile === "") return toast.warn("Enter vendor mobile"); //2
     if (data.vendor_email === "") return toast.warn("Enter vendor email"); //3
     if (data.company_name === "") return toast.warn("Enter the company name");
-    if (data.firm_status === "") return toast.warn("Enter the Firm Status");
-    if (data.vendor_type === "") return toast.warn("Enter the vendor type");
-    if (data.gst_category === "") return toast.warn("Enter the gst category");
-    if (data.buiness_type === "") return toast.warn("Enter the buiness type");
-    if (data.place_of_supply === "")
-      return toast.warn("Enter the place of supply");
-    if (data.gst_number === "") return toast.warn("Enter the GST number");
-    if (data.pan === "") return toast.warn("Enter the PAN number");
-    if (data.street === "") return toast.warn("Enter the Address");
-    if (data.area === "") return toast.warn("Enter the area");
-    if (data.country === "") return toast.warn("Enter the country");
-    if (data.state === "") return toast.warn("Enter the state");
-    if (data.city === "") return toast.warn("Enter the city");
-    if (data.pincode === "") return toast.warn("Enter the pin code");
-    if (data.bank_name === "") return toast.warn("Enter the bank name");
-    if (data.account_number === "")
-      return toast.warn("Enter the bank account number");
-    if (data.branch === "") return toast.warn("Enter the branch");
-    if (data.Ifsc === "") return toast.warn("Enter the bank Ifsc");
+    // if (data.firm_status === "") return toast.warn("Enter the Firm Status");
+    // if (data.vendor_type === "") return toast.warn("Enter the vendor type");
+    // if (data.gst_category === "") return toast.warn("Enter the gst category");
+    // if (data.buiness_type === "") return toast.warn("Enter the buiness type");
+    // if (data.place_of_supply === "")
+    //   return toast.warn("Enter the place of supply");
+    // if (data.gst_number === "") return toast.warn("Enter the GST number");
+    // if (data.pan === "") return toast.warn("Enter the PAN number");
+    // if (data.street === "") return toast.warn("Enter the Address");
+    // if (data.area === "") return toast.warn("Enter the area");
+    // if (data.country === "") return toast.warn("Enter the country");
+    // if (data.state === "") return toast.warn("Enter the state");
+    // if (data.city === "") return toast.warn("Enter the city");
+    // if (data.pincode === "") return toast.warn("Enter the pin code");
+    // if (data.bank_name === "") return toast.warn("Enter the bank name");
+    // if (data.account_number === "")
+    //   return toast.warn("Enter the bank account number");
+    // if (data.branch === "") return toast.warn("Enter the branch");
+    // if (data.Ifsc === "") return toast.warn("Enter the bank Ifsc");
 
     createVendorFn({
-      formData: JSON.stringify(data),
+      formData: data,
       setloding,
       navigate,
       link: message === "save" ? "/vendor" : "/vendor/create-vendor",
